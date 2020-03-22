@@ -1,0 +1,32 @@
+{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:53699",
+      "sslPort": 0
+    }
+  },
+  "$schema": "http://json.schemastore.org/launchsettings.json",
+  "profiles": {
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "api/bestellingen",
+      "environmentVariables": {
+        "dburl": "Server=localhost;Database=BestellingenDB;User Id=SA; Password=Mika@123",
+        "mqurl": "amqp://guest:guest@localhost:5672",
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "AL.Bestellingen": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "api/bestellingen",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "http://localhost:5000"
+    }
+  }
+}

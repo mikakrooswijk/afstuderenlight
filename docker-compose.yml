@@ -1,0 +1,55 @@
+version: "3.3"
+
+services:
+    webshop-eventbus:
+        image: rabbitmq:3-management
+        container_name: webshop-eventbus
+        environment: 
+            - "RABBITMQ_DEFAULT_USER=guest"
+            - "RABBITMQ_DEFAULT_PASS=guest"
+        ports:
+            - "5672:5672"
+            - "15672:15672"
+        expose:
+            - "5672"
+            - "15672"
+    sql-db:
+        image: mcr.microsoft.com/mssql/server
+        restart: always
+        environment: 
+            - SA_PASSWORD=Mika@123
+            - ACCEPT_EULA=y
+        ports: 
+            - "1433:1433"
+        expose:
+            - "1433"
+    webshop-service: 
+        build: 
+            context: ./AL.Webshop/AL.webshopService
+        environment: 
+            dburl: "Server=sql-db;Database=BestellingenDB;User Id=SA; Password=Mika@123"
+            mqurl: "amqp://guest:guest@webshop-eventbus:5672"
+        ports: 
+            - "5006:80"
+        expose: 
+            - "80"
+        restart: always
+        depends_on: 
+            - sql-db
+            -  webshop-eventbus
+    bestellingen-service: 
+        build: 
+            context: ./AL.Bestellingen/AL.BestellingenService
+        environment: 
+            dburl: "Server=sql-db;Database=WebshopDB;User Id=SA; Password=Mika@123"
+            mqurl: "amqp://guest:guest@webshop-eventbus:5672"
+        ports: 
+            - "5007:80"
+        expose: 
+            - "80"
+        restart: always
+        depends_on: 
+            - sql-db
+            -  webshop-eventbus
+
+    
