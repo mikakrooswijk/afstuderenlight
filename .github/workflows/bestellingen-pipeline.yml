@@ -3,7 +3,9 @@ name: .NET Core
 on:
   push:
     branches: [ master ]
-    paths: 'AL.Bestellingen/*'
+    paths: 
+      -'AL.Bestellingen/**'
+      - '.github/workflows/**'
   
 
 jobs:
