@@ -1,0 +1,30 @@
+name: .NET Core
+
+on:
+  push:
+    branches: [ master ]
+    paths: 'AL.Bestellingen/*'
+  
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.101
+        
+    - name: Install dependencies
+      working-directory: 'AL.Bestellingen/*'
+      run: dotnet restore
+    - name: Build
+      working-directory: 'AL.Bestellingen/*'
+      run: dotnet build --configuration Release --no-restore
+    - name: Test
+      working-directory: 'AL.Bestellingen/*'
+      run: dotnet test --no-restore --verbosity normal
+    
