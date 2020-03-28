@@ -4,8 +4,8 @@ on:
   push:
     branches: [ master ]
     paths: 
-      - 'AL.Webshop/*'
-      - '.github/workflow/*' 
+    - 'AL.Webshop/**'
+    - '.github/workflow/**' 
   
 
 jobs:
