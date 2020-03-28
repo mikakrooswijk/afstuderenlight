@@ -42,6 +42,9 @@ namespace AL.WebshopService.UnitTest
         {
             // Arrange
             var context = new WebshopContext(_options);
+            context.RemoveRange(context.Bestellingen);
+            context.SaveChanges();
+
             var target = new BestellingenController(new WebshopContext(_options), null);
             var guid = Guid.NewGuid();
             context.Bestellingen.Add(new Bestelling() { BestellingNummer = guid });
@@ -61,6 +64,7 @@ namespace AL.WebshopService.UnitTest
             // Arrange
             var context = new WebshopContext(_options);
             context.RemoveRange(context.Bestellingen);
+            context.SaveChanges();
 
             var publisherMock = new Mock<IBestellingGeplaatstEventPublisher>();
             publisherMock.Setup(m => m.PublishBestellingGeplaatstEvent(It.IsAny<BestellingGeplaatstEvent>()));
