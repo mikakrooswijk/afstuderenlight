@@ -4,8 +4,8 @@ on:
   push:
     branches: [ master ]
     paths: 
-      -'AL.Bestellingen/**'
-      - '.github/workflows/**'
+      -'**/AL.Bestellingen/**'
+      - '**/.github/workflows/**'
   
 
 jobs:
