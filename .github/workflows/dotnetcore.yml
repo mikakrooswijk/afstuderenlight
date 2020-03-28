@@ -18,12 +18,12 @@ jobs:
         dotnet-version: 3.1.101
         
     - name: Install dependencies
-      working-directory: 'AL.Bestellingen/*'
+      working-directory: './afstuderenlight/AL.Bestellingen/'
       run: dotnet restore
     - name: Build
-      working-directory: 'AL.Bestellingen/*'
+      working-directory: './afstuderenlight/AL.Bestellingen/'
       run: dotnet build --configuration Release --no-restore
     - name: Test
-      working-directory: 'AL.Bestellingen/*'
+      working-directory: './afstuderenlight/AL.Bestellingen/'
       run: dotnet test --no-restore --verbosity normal
     
