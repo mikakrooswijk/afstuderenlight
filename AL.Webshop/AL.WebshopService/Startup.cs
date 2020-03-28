@@ -73,7 +73,7 @@ namespace AL.WebshopService
             services.AddControllers();
             services.AddDbContext<WebshopContext>(options => options.UseSqlServer(dburl));
             services.AddSingleton(context);
-            services.AddSingleton<BestellingGeplaatstEventPublisher, BestellingGeplaatstEventPublisher>();
+            services.AddSingleton<IBestellingGeplaatstEventPublisher, BestellingGeplaatstEventPublisher>();
             services.AddTransient<IEventPublisher, EventPublisher>();
         }
 

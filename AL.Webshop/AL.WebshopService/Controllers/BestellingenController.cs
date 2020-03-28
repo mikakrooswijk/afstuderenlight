@@ -15,18 +15,18 @@ namespace AL.WebshopService.Controllers
     public class BestellingenController : Controller
     {
         private WebshopContext _webshopContext;
-        private BestellingGeplaatstEventPublisher _bestellingGeplaatstEventPublisher;
+        private IBestellingGeplaatstEventPublisher _bestellingGeplaatstEventPublisher;
 
-        public BestellingenController(WebshopContext webshopContext, BestellingGeplaatstEventPublisher eventPublisher)
+        public BestellingenController(WebshopContext webshopContext, IBestellingGeplaatstEventPublisher eventPublisher)
         {
             _bestellingGeplaatstEventPublisher = eventPublisher;
             _webshopContext = webshopContext;
         }
 
 
-        public IActionResult Index()
+        public JsonResult Index()
         {
-            return Json(_webshopContext.Bestellingen);
+            return Json(_webshopContext.Bestellingen.ToList());
         }
 
         [HttpPost]
