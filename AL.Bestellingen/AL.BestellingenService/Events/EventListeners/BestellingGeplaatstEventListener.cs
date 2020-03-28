@@ -1,5 +1,5 @@
 ﻿using AL.Bestellingen.Events.EventPublisher;
-using AL.WebshopService.DAL;
+using AL.BestellingenService.DAL;
 using Microsoft.EntityFrameworkCore;
 using Minor.Miffy.MicroServices.Events;
 using System;
@@ -12,8 +12,8 @@ namespace AL.Bestellingen.Events.EventListeners
     public class BestellingGeplaatstEventListener
     {
         private readonly WebshopContext _webshopContext;
-        private readonly BestellingGeregistreerdEventPublisher _eventPublisher;
-        public BestellingGeplaatstEventListener(WebshopContext webshopContext, BestellingGeregistreerdEventPublisher eventPublisher)
+        private readonly IBestellingGeregistreerdEventPublisher _eventPublisher;
+        public BestellingGeplaatstEventListener(WebshopContext webshopContext, IBestellingGeregistreerdEventPublisher eventPublisher)
         {
             _webshopContext = webshopContext;
             _eventPublisher = eventPublisher;

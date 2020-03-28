@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AL.WebshopService.DAL
+namespace AL.BestellingenService.DAL
 {
     public class WebshopContext : DbContext
     {

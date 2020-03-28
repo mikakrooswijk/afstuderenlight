@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\source\repos\AL.Bestellingen\AL.Bestellingen\AL.BestellingenService.csproj" />
+    <ProjectReference Include="..\AL.BestellingenService\AL.BestellingenService.csproj" />
   </ItemGroup>
 
 </Project>

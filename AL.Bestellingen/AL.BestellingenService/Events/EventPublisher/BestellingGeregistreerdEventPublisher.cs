@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AL.Bestellingen.Events.EventPublisher
 {
-    public class BestellingGeregistreerdEventPublisher
+    public class BestellingGeregistreerdEventPublisher : IBestellingGeregistreerdEventPublisher
     {
         private readonly IEventPublisher _eventPublisher;
         public BestellingGeregistreerdEventPublisher(IEventPublisher eventPublisher)

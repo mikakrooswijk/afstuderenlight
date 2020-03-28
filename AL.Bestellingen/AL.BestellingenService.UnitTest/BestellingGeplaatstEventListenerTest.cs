@@ -2,7 +2,7 @@
 using AL.Bestellingen.Events.EventListeners;
 using AL.Bestellingen.Events.EventPublisher;
 using AL.Bestellingen.Models;
-using AL.WebshopService.DAL;
+using AL.BestellingenService.DAL;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;

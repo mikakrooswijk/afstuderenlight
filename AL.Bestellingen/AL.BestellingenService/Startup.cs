@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AL.Bestellingen.Events.EventPublisher;
-using AL.WebshopService.DAL;
+using AL.BestellingenService.DAL;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -60,7 +60,7 @@ namespace AL.Bestellingen
                 {
                     services.AddDbContext<WebshopContext>(options => options.UseSqlServer(dburl));
                     services.AddSingleton(context);
-                    services.AddSingleton<BestellingGeregistreerdEventPublisher, BestellingGeregistreerdEventPublisher>();
+                    services.AddSingleton<IBestellingGeregistreerdEventPublisher, BestellingGeregistreerdEventPublisher>();
                     services.AddTransient<IEventPublisher, EventPublisher>();
 
                 })

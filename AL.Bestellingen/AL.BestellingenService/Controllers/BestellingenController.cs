@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using AL.WebshopService.DAL;
+using AL.BestellingenService.DAL;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AL.Bestellingen.Controllers
@@ -17,9 +17,9 @@ namespace AL.Bestellingen.Controllers
         {
             _webshopContext = webshopContext;
         }
-        public IActionResult Index()
+        public JsonResult Index()
         {
-            return Json(_webshopContext.Bestellingen);
+            return Json(_webshopContext.Bestellingen.ToList());
         }
     }
 }
