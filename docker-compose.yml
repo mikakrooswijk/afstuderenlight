@@ -15,7 +15,6 @@ services:
             - "15672"
     sql-db:
         image: mcr.microsoft.com/mssql/server
-        restart: always
         environment: 
             - SA_PASSWORD=Mika@123
             - ACCEPT_EULA=y

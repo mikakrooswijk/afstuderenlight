@@ -12,4 +12,4 @@ ARG source
 WORKDIR /app
 EXPOSE 80
 COPY --from=build-env /app/out .
-ENTRYPOINT ["dotnet", "AL.Bestellingen.dll"]
+ENTRYPOINT ["dotnet", "AL.BestellingenService.dll"]

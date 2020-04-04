@@ -48,7 +48,7 @@ namespace AL.Bestellingen
                         .CreateContext();
                     created = true;
                 }
-                catch (BusConfigurationException e)
+                catch (Exception e)
                 {
                     Thread.Sleep(1000);
                 }

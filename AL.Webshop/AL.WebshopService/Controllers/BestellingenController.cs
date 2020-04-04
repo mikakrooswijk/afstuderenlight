@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using AL.WebshopService.DAL;
 using AL.WebshopService.Events;
 using AL.WebshopService.Events.EventPublishers;
@@ -14,8 +12,8 @@ namespace AL.WebshopService.Controllers
 
     public class BestellingenController : Controller
     {
-        private WebshopContext _webshopContext;
-        private IBestellingGeplaatstEventPublisher _bestellingGeplaatstEventPublisher;
+        private readonly WebshopContext _webshopContext;
+        private readonly IBestellingGeplaatstEventPublisher _bestellingGeplaatstEventPublisher;
 
         public BestellingenController(WebshopContext webshopContext, IBestellingGeplaatstEventPublisher eventPublisher)
         {
@@ -41,7 +39,6 @@ namespace AL.WebshopService.Controllers
             var bestellingEvent = new BestellingGeplaatstEvent()
             {
                 Bestelling = bestelling,
-
             };
 
             _bestellingGeplaatstEventPublisher.PublishBestellingGeplaatstEvent(bestellingEvent);
